@@ -1,0 +1,46 @@
+version: "3.7"
+
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: ./config/app/Dockerfile
+    image: capitals:api
+    container_name: capitals
+    volumes:
+      - ./quiz:/app
+    restart: "on-failure"
+    networks:
+      - capitals-api
+
+  client:
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: capitals_frontend
+    volumes: 
+      - ./app/node_modules
+      - ./client:/app
+    depends_on: 
+      - api
+    networks: 
+      - capitals-api
+
+  nginx:
+    build: 
+      context: .
+      dockerfile: ./config/nginx/Dockerfile
+    ports: 
+      - 8080:80
+    restart: "always"
+    depends_on: 
+      - api
+      - client
+    networks: 
+      - capitals-api
+
+
+networks:
+  capitals-api:
+    driver: bridge
