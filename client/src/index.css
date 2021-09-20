@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #15172b;
+  color: white;
+  margin-top: 20%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+.country {
+  height: 20px;
+}
+
+.inputBox {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.score__text {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
+}
+
+#submitGuess {
+  height: 24px;
+  width: 80px;
+  border-radius: 8px;
+  border: none;
+  background-color: #08d;
+  color: white;
+  font-weight: 800;
+}
+
+#submitGuess:active {
+  background-color: #06b;
+}
