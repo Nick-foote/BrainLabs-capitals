@@ -15,7 +15,6 @@ console_handler = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s %(name)s %(levelname)s:%(message)s')
 console_handler.setLevel(logging.DEBUG)
 console_handler.setFormatter(formatter)
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logger.addHandler(console_handler)
@@ -31,7 +30,6 @@ class HomeView(APIView):
         and collects a country & Capital pair."""        
         
         data = (self.get_random_country())
-        print(f"\n {data} \n")
         return Response(data)
 
     def get_random_country(self):
@@ -57,42 +55,3 @@ class HomeView(APIView):
             "country": country_object["name"], 
             "capital": country_object["capital"]
             }
-
-
-
-
-
-
-
-
-
-
-
-# pick country at random
-# ask user to enter the capital city
-# check user input for correct answer
-# show user correct answer if incorrect
-
-
-
-# BACKEND
-
-# 1)
-# fetch data from url
-# get random number between 0 len(data)
-# data[randint] = country
-# get capital + country from JSON object = {"name", "capital"}
-# send two variables to frontend
-
-
-
-# FRONTEND
-
-# 2) get the two variables from the backend
-# get user to type in their guess
-# check guess
-# if incorrect, reveal capital city
-# request a new country/capital
-
-
-
